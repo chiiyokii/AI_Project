@@ -5,4 +5,4 @@
 |-------------------|------------------------|
 | Ra'iarii Ollivier | Electronic engineering |
 | Antoine Mayla     | Electronic engineering |
-| Alexia Mansiat    | Mecanical engineering  |
+| Alexia Mansiat    | Mechanical engineering  |

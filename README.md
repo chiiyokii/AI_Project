@@ -1,7 +1,7 @@
 # **Welcome !**
 ## Art is above all
 
-Group members
+**Group members :**
 
 |        Name       |        Major           |
 |-------------------|------------------------|

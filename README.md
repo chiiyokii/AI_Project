@@ -1,7 +1,7 @@
 # **Welcome !**
-## Let me tell you what is up here...
+## Art is above all
 
-Dataset : https://www.kaggle.com/datasets/crawford/cat-dataset
+Group members
 
 |        Name       |        Major           |
 |-------------------|------------------------|

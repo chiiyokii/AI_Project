@@ -16,8 +16,7 @@
 
 **Here is a quick glance about what we plan to do :**
 
-&emsp;We love art, especially pictures and paintings. That’s why our project focuses on developing an AI able to distinguish a painting from a photograph.
-Our plan is to use a dataset containing both real photos and paintings. The primary goal is to create a binary classification system to differentiate them (for example, using ‘1’ for a real photo and ‘0’ for a painting). Then, we will mix the dataset and train the AI accordingly. Although we haven’t decided yet which programming language or library to use, we are aware that we will be working with image files. Therefore, we need a solution that can adapt to different image sizes and resolutions, we plan to put all the images at the same size.
+&emsp;In Paris, the housing market is really tense. Indeed, everyday hundreds of apartments are sold. Today there is 13% more buyers than sellers so the price are going up. But, as a buyer you should be careful that the apartment you want to buy is priced fairly. That is why we wanted to create this AI that can predict the sell price of an apartment in Paris based on several criteria such as location, surface, floor ...
 
 
 Dataset from kaggle we will use : [DatasetOfPhotosAndPaintings](https://www.kaggle.com/datasets/iiplutocrat45ii/painting-vs-photograph-classification-dataset)

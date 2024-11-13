@@ -18,7 +18,7 @@
 **Here is a quick glance about what we plan to do :**
 
 
-In Paris, the housing market is really tense. Indeed, everyday hundreds of apartments are sold. Today there is 13% more buyers than sellers so the price are going up. But, as a buyer you should be careful that the apartment you want to buy is priced fairly. That is why we wanted to create this AI that can predict the sell price of an apartment in Paris based on several criteria such as location, surface, floor ...
+In Paris, the housing market is really tense. Indeed, everyday about a hundred of apartments is sold. Today there is 13% more buyers than sellers so the price are going up. But, as a buyer you should be careful that the apartment you want to buy is priced fairly. That is why we wanted to create this AI that can predict the sell price of an apartment in Paris based on several criteria such as location, surface, floor ...
 
 Dataset from kaggle we will use : [DatasetOfPhotosAndPaintings](https://www.kaggle.com/datasets/mssmartypants/paris-housing-price-prediction)
 

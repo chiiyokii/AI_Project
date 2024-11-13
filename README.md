@@ -14,6 +14,7 @@
 | William Rabuel    | Computer Science       |
 
 
+
 **Here is a quick glance about what we plan to do :**
 
 

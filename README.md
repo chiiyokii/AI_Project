@@ -26,5 +26,7 @@ This dataset is only composed of numbers. We have numerical features : square me
 
 After quickly reviewing the content of the dataset, we noticed that some of the features contain absurd values. We have to determine wether to keep those or adapt the values. For example, we could manage big values by dividing and rounding to approximately reach a normal scale of value.
 
+The first step of our project 
+
 
 

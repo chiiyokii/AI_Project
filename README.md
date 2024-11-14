@@ -24,9 +24,7 @@ Dataset from kaggle we will use : [DatasetOfPhotosAndPaintings](https://www.kagg
 
 This dataset is only composed of numbers. We have numerical features : square meters, number of rooms, floors, city code, city part range(0 cheapest 10 most expensive), the year it was built, the number of previous owners and also boolean features such as  
 
-
-
-
+After quickly reviewing the content of the dataset, we noticed that some of the features contain absurd values. We have to determine wether to keep those or adapt the values. For example, we could manage big values by dividing and rounding to approximately reach a normal scale of value.
 
 
 

@@ -1,5 +1,5 @@
 # **Welcome !**
-## Art is above all
+## Living in Paris is expensive
 ![image](https://github.com/user-attachments/assets/3fae9b24-178e-4bb8-8469-dfaae61eefcc) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  ![image](https://github.com/user-attachments/assets/fd7ba857-693c-4c41-8432-f02026adb151)
 
 

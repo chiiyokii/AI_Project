@@ -1,4 +1,4 @@
-# **Welcome !**
+# **Welcome to our AI project !**
 ## Living in Paris is expensive
 ![image](https://github.com/user-attachments/assets/86d8dada-515b-4e36-ad2f-d8e4fe516113) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![image](https://github.com/user-attachments/assets/134dc3d5-86d8-40f4-9c00-3079f658a013)
 
@@ -18,7 +18,7 @@
 **Here is a quick glance about what we plan to do :**
 
 
-&emsp;In Paris, the housing market is really tense. Indeed, everyday about a hundred of apartments are sold. Today there is 13% more buyers than sellers so the price are going up. But, as a buyer you should be careful that the apartment you want to buy is priced fairly. That is why we wanted to create this AI that can predict the sell price of an apartment in Paris based on several criteria such as location, surface, floor ...
+&emsp;The housing market is really tense. Indeed, everyday about a hundred of apartments are sold. Today there is 13% more buyers than sellers so the price are going up. But, as a buyer you should be careful that the apartment you want to buy is priced fairly. That is why we wanted to create this AI that can predict the sell price of an apartment in Paris based on several criteria such as location, surface, floor ...
 
 Dataset from kaggle we will use : [DatasetOfHousingPrice](https://www.kaggle.com/datasets/mssmartypants/paris-housing-price-prediction)
 

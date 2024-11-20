@@ -40,7 +40,15 @@ Before we start building our Machine Learning model, we need to understand our d
 
 ![image](https://github.com/user-attachments/assets/f1eaeed6-51b5-44c8-b1ce-415667f9dc89)
 
-The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for us and our model. The area of land, the selling date and the y_axis position are also correlated, making them also quite useful for us. Unlike them, the category of the accomodation and the x_axi position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the to position features and the shape of the building because of the lack of data
+The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for us and our model. The area of land, the selling date and the y_axis position are also correlated, making them also quite useful for us. Unlike them, the category of the accomodation and the x_axi position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the to position features and the shape of the building because of the lack of data. We can now also exclude the x_axis position from our features due to the results of our data analysis. Thus we now have seven features, making our data set a [148 279,7] matrix. 
+
+**Random Forest:**
+
+Now that we have sorted our data, we can start to build our Machine Learning modele by using at first randomforest.
+
+
+![image](https://github.com/user-attachments/assets/8f3a5618-8347-4151-a424-7c4e416c321b)
+
 
 
 

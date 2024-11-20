@@ -31,3 +31,16 @@ After analyzing the content of the dataset, we noticed that some of the features
 
 Our first step is to understand our dataset with statistic analysis. Especially to look for null and unique values.
 We plan to use four different ML techniques to achieve our goal.
+
+**A Quick Data Analysis:**
+
+![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
+
+Before we start building our Machine Learning model, we need to understand our dataset at a deeper level. As said previously, it is composed of ten features : Selling date, x coordinates, y coordinates, category, area of living (in square meters), area of the land (in square meters), number of rooms, the shape of the building and the price. Our model should be able to predict the price of a house, meaning that this should be our target feature. Thus, we need to analyse our dataset to help us identify the usefull features reamaining in our dataset. It is for this purpose that we did a statiscal analysis of our dataset using correlation matrix and a heat map. 
+
+![image](https://github.com/user-attachments/assets/f1eaeed6-51b5-44c8-b1ce-415667f9dc89)
+
+The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for us and our model. The area of land, the selling date and the y_axis position are also correlated, making them also quite useful for us. Unlike them, the category of the accomodation and the x_axi position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the to position features and the shape of the building because of the lack of data
+
+
+

@@ -1,6 +1,6 @@
 # **Welcome to our AI project !** 
 
-## How not ot get scammed buying your house (BZH)
+## How not to get scammed buying your house (BZH)
 ![image](https://github.com/user-attachments/assets/886da2b9-05e3-429e-b11e-361063ae8221)
  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![image](https://github.com/user-attachments/assets/fe026e1b-5a4e-4e4b-a60b-25fcf9e982ae)
 

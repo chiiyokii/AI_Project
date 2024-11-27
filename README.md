@@ -34,7 +34,7 @@ Our first step is to understand our dataset with statistic analysis. Especially 
 
 The second step is to train multiple ML model to compare results and accuracy. We plan to use between three and four different ML techniques to achieve our goal.
 
-##**A Quick Data Analysis:**
+## **A Quick Data Analysis:**
 
 ![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 

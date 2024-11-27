@@ -31,6 +31,7 @@ This dataset is composed of 10 columns: selling date, gps coordinates, position 
 After analyzing the content of the dataset, we noticed that some of the features were not usefull, indeed having the gps position and the position on x and y axis is not necessary. Thus we decided not to use the gps coordinates along with the shape of the house. 
 
 Our first step is to understand our dataset with statistic analysis. Especially to look for null and unique values. This process also allows us to understand all the correlations between the features. In our case, we are looking for the features strongly correlated with the price, and identify those who are not.
+
 The second step is to train multiple ML model to compare results and accuracy. We plan to use between three and four different ML techniques to achieve our goal.
 
 **A Quick Data Analysis:**

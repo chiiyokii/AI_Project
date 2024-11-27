@@ -46,6 +46,8 @@ The results of this analyse are shown above in this heat map. As we can see, the
 
 Thus we now have seven features, making our data set a [148 279,7] matrix. 
 
+Our target feature is the price. That makes six features to work with.
+
 **Random Forest:**
 
 Now that we have sorted our data, we can start to build our Machine Learning modele by using at first randomforest.

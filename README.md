@@ -21,10 +21,10 @@
 **Here is a quick glance about what we plan to do :**
 
 
-&emsp;Brittany is one of the best region of France, with it's cows, crêpes and kouign amann, there is everything you need to spend a really good time during vacations. But with the raising popularity of this destination among french people,the housing market skyrocketed. Indeed, everyday about a hundred of apartments and houses are sold. Today there is 13% more buyers than sellers so the prices are going up. But, as a buyer you should be careful that the lovely house you want to buy is priced fairly. That is why we wanted to create this AI model that can predict the selling price of accomodations. Our goal with this model is to create a machine learning modele able to precisely predict the price of a house depending on the market, whether the user want to buy or sell an accomodation.Indeed, people will be able to use it to easily make their first opinion on the price of a house without having to go through a long process with real estate agencies.
+&emsp;Brittany is one of the best region of France, with its cows, crêpes and kouign amann, there is everything you could need to have a really good time during vacations. But with the raising popularity of this destination among french people,the housing market skyrocketed. Indeed, everyday about a hundred of apartments and houses are sold. Today there is 13% more buyers than sellers so the prices are going up. But, as a buyer you should be careful that the lovely house you want to buy is priced fairly. That is why we wanted to create this AI model that can predict the selling price of accomodations. Our goal with this model is to create a machine learning model able to precisely predict the price of a house depending on the market, whether the user wants to buy or sell an accomodation.Indeed, people will be able to use it to easily make their first opinion on the price of a house without having to go through a long process with real estate agencies.
 
 
-Dataset from kaggle we will use : [DatasetOfHousingPrice](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr)
+Here is the Dataset from kaggle we will use : [DatasetOfHousingPrice](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr)
 
 This dataset is composed of 10 columns: selling date, gps coordinates, position on x axis, position on y axis,category (e.g. house or condo), area of living, area of the land, number of rooms, the shape of the building and the price. We have numerical features : selling date,square meters, number of rooms and the position and also boolean features such as if it is a house or an condo.We chose this dataset because the features it has are really interesting and the values are values from real houses in Ille et Vilaine so the price prediction makes more sense in this configuration.   
 
@@ -38,11 +38,11 @@ The second step is to train multiple ML model to compare results and accuracy. W
 
 ![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 
-Before we start building our Machine Learning model, we need to understand our dataset at a deeper level. As said previously, it is composed of ten features : Selling date, x coordinates, y coordinates, category, area of living (in square meters), area of the land (in square meters), number of rooms, the shape of the building and the price. Our model should be able to predict the price of a house, meaning that this should be our target feature. Thus, we need to analyse our dataset to help us identify the usefull features reamaining in our dataset. It is for this purpose that we did a statiscal analysis of our dataset using a correlation heat map. 
+Before we start building our Machine Learning model, we need to understand our dataset on a deeper level. As said previously, it is composed of ten features : Selling date, x coordinates, y coordinates, category, area of living (in square meters), area of the land (in square meters), number of rooms, the shape of the building and the price. Our model should be able to predict the price of a house, meaning that this should be our target feature. Thus, we need to analyse our dataset to help us identify the usefull features reamaining in our dataset. It is for this purpose that we did a statiscal analysis of our dataset using a correlation heat map. 
 
 ![image](https://github.com/user-attachments/assets/f1eaeed6-51b5-44c8-b1ce-415667f9dc89)
 
-The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated but on the opposite, the category of the accomodation and the x_axis position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
+The results of this analysis are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated but on the opposite, the category of the accomodation and the x_axis position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
 
 
 Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
@@ -51,6 +51,12 @@ To be able to predict the price we are going to use several methods such as Rand
 **Random Forest:**
 
 Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
+Here are our results :
+![image](https://github.com/user-attachments/assets/40c36697-9194-48a1-aed5-bfe7b161d53c)
+Random Forest Model Evaluation:
+Mean Squared Error (MSE): 14671097024.148306
+Root Mean Squared Error (RMSE): 121124.3040192525
+R² Score: 0.6834712840691937
 
 
 **eXtreme Gradient Boosting:**

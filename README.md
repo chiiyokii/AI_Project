@@ -57,6 +57,49 @@ Now that we have sorted our data, we can start to build our Machine Learning mod
 
 The second method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
 
+We will need use those libraries in order to build our model.
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from xgboost import XGBRegressor
+import warnings
+warnings.filterwarnings("ignore")
+```
+Now that we imported our libraries and since we already checked our datas, we can start to modify our datas so they can be included more easily in our model, such as the selling and the type of accomodation.
+```python
+if 'date' in df.columns:
+    df['date'] = pd.to_datetime(df['date'], errors='coerce')
+    df['Selling_date'] = (df['date'] - pd.Timestamp("1970-01-01")) // pd.Timedelta('1s')
+    df.drop(columns=['date'], inplace=True)
+if 'category' in df.columns:
+    df['category'] = df['category'].map({'H': 0, 'C': 1}).fillna(-1)
+```
+We convert our date into integers and the type of accomodation into either a 0 or a 1.
+
+Once this is done, we can start to prepare our model.
+
+```python
+df['price'] = pd.factorize(df['price'])[0] + 1
+X = df.drop(['price'], axis = 1)
+y = df['price']
+X_train, X_test, y_train, y_test= train_test_split(X, y, test_size=0.3, random_state=101)
+
+scaler_train= StandardScaler()
+scaler_train.fit(X_train)
+scaler_test= StandardScaler()
+scaler_test.fit(X_test)
+X_train_scaled= scaler_train.transform(X_train)
+X_test_scaled= scaler_test.transform(X_test)
+
+XGB_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)
+XGB_model.fit(X_train_scaled,y_train)
+```
+
 **Machine Learning Pipeline**
 
 As a reference to other existing Machine learning Algorithm, let's try using pipelines from the library SKLearn. This algorithm, compared to the previous one, is not as effective and we are expecting a big error. To test the accuracy, we will apply a Mean Squarred Error. 

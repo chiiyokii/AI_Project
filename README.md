@@ -61,6 +61,37 @@ The second method we will be using XGBoost to try to predict more precisely the 
 
 As a reference to other existing Machine learning Algorithm, let's try using pipelines from the library SKLearn. This algorithm, compared to the previous one, is not as effective and we are expecting a big error. To test the accuracy, we will apply a Mean Squarred Error. 
 
+These are the libraries used during this whole process : 
+
+```ruby
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+import numpy as np
+```
+
+First of all we need to prepare our dataset for an effective training.
+
+```ruby
+houses = pd.read_csv('housing-prices-35.csv')
+houses = houses.drop(columns=['shape_wgs','position_wgs','x_lbt93','category'])
+df = pd.DataFrame(houses)
+```
+
+To use the date, we need to convert into seconds : 
+
+```ruby
+df['date'] = pd.to_datetime(df['date']).astype('int64')/10**10
+```
+
+Before scaling our datas, let's try with our raw dataset using 80% of it for training and 20% for testing :
+
 ```ruby
 features = df[['date','y_lbt93','area_living','area_land','n_rooms']]
 target = df['price']

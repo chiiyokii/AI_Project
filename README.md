@@ -1,6 +1,6 @@
 # **Welcome to our AI project !** 
 
-## How not to get scammed buying your house (BZH)
+## How not to get scammed buying your house
 ![image](https://github.com/user-attachments/assets/886da2b9-05e3-429e-b11e-361063ae8221)
  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;![image](https://github.com/user-attachments/assets/fe026e1b-5a4e-4e4b-a60b-25fcf9e982ae)
 
@@ -38,22 +38,24 @@ The second step is to train multiple ML model to compare results and accuracy. W
 
 ![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 
-Before we start building our Machine Learning model, we need to understand our dataset at a deeper level. As said previously, it is composed of ten features : Selling date, x coordinates, y coordinates, category, area of living (in square meters), area of the land (in square meters), number of rooms, the shape of the building and the price. Our model should be able to predict the price of a house, meaning that this should be our target feature. Thus, we need to analyse our dataset to help us identify the usefull features reamaining in our dataset. It is for this purpose that we did a statiscal analysis of our dataset using correlation matrix and a heat map. 
+Before we start building our Machine Learning model, we need to understand our dataset at a deeper level. As said previously, it is composed of ten features : Selling date, x coordinates, y coordinates, category, area of living (in square meters), area of the land (in square meters), number of rooms, the shape of the building and the price. Our model should be able to predict the price of a house, meaning that this should be our target feature. Thus, we need to analyse our dataset to help us identify the usefull features reamaining in our dataset. It is for this purpose that we did a statiscal analysis of our dataset using a correlation heat map. 
 
 ![image](https://github.com/user-attachments/assets/f1eaeed6-51b5-44c8-b1ce-415667f9dc89)
 
 The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated, making them useful. On the opposite, the category of the accomodation and the x_axi position are negatively correlated to the price, making them useless to build our model. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
+We chose this dataset because the features it has are really interesting and the values are values from real houses in Ille et Vilaine so the price prediction makes more sense in this configuration. 
 
 Thus we now have six features, making our data set a [148 279,6] matrix. 
 
 Our target feature is the price. That makes five features to work with.
+To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
 **Random Forest:**
 
-Now that we have sorted our data, we can start to build our Machine Learning modele by using at first randomforest.
+Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
 
 
-![image](https://github.com/user-attachments/assets/8f3a5618-8347-4151-a424-7c4e416c321b)
+
 
 
 

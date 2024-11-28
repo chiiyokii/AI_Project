@@ -45,9 +45,7 @@ Before we start building our Machine Learning model, we need to understand our d
 The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated but on the opposite, the category of the accomodation and the x_axis position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
 
 
-Thus we now have six features, making our data set a [148 279,6] matrix. 
-
-Our target feature is the price. That makes five features to work with.
+Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
 **Random Forest:**

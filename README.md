@@ -42,7 +42,7 @@ Before we start building our Machine Learning model, we need to understand our d
 
 ![image](https://github.com/user-attachments/assets/f1eaeed6-51b5-44c8-b1ce-415667f9dc89)
 
-The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated, making them useful. On the opposite, the category of the accomodation and the x_axi position are negatively correlated to the price, making them useless to build our model. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
+The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated but on the opposite, the category of the accomodation and the x_axis position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
 
 
 Thus we now have six features, making our data set a [148 279,6] matrix. 
@@ -53,6 +53,11 @@ To be able to predict the price we are going to use several methods such as Rand
 **Random Forest:**
 
 Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
+
+
+**eXtreme Gradient Boosting:**
+
+The second method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones. By optimizing for speed and accuracy, XGBoost uses advanced techniques like regularization, parallel processing, and tree pruning to prevent overfitting and improve performance.
 
 
 

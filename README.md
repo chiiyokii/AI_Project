@@ -54,8 +54,11 @@ Now that we have sorted our data, we can start to build our Machine Learning mod
 Here are our results :
 ![image](https://github.com/user-attachments/assets/40c36697-9194-48a1-aed5-bfe7b161d53c)
 Random Forest Model Evaluation:
+
 Mean Squared Error (MSE): 14671097024.148306
+
 Root Mean Squared Error (RMSE): 121124.3040192525
+
 R² Score: 0.6834712840691937
 
 

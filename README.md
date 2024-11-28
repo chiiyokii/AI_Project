@@ -26,7 +26,7 @@
 
 Dataset from kaggle we will use : [DatasetOfHousingPrice](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr)
 
-This dataset is composed of 10 columns: selling date, gps coordinates, position on x axis, position on y axis,category (e.g. house or condo), area of living, area of the land, number of rooms, the shape of the building and the price. We have numerical features : selling date,square meters, number of rooms and the position and also boolean features such as if it is a house or an condo.  
+This dataset is composed of 10 columns: selling date, gps coordinates, position on x axis, position on y axis,category (e.g. house or condo), area of living, area of the land, number of rooms, the shape of the building and the price. We have numerical features : selling date,square meters, number of rooms and the position and also boolean features such as if it is a house or an condo.We chose this dataset because the features it has are really interesting and the values are values from real houses in Ille et Vilaine so the price prediction makes more sense in this configuration.   
 
 After analyzing the content of the dataset, we noticed that some of the features were not usefull, indeed having the gps position and the position on x and y axis is not necessary. Thus we decided not to use the gps coordinates along with the shape of the house. 
 
@@ -43,7 +43,7 @@ Before we start building our Machine Learning model, we need to understand our d
 ![image](https://github.com/user-attachments/assets/f1eaeed6-51b5-44c8-b1ce-415667f9dc89)
 
 The results of this analyse are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated, making them useful. On the opposite, the category of the accomodation and the x_axi position are negatively correlated to the price, making them useless to build our model. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
-We chose this dataset because the features it has are really interesting and the values are values from real houses in Ille et Vilaine so the price prediction makes more sense in this configuration. 
+
 
 Thus we now have six features, making our data set a [148 279,6] matrix. 
 

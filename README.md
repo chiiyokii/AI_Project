@@ -57,8 +57,15 @@ Now that we have sorted our data, we can start to build our Machine Learning mod
 
 The second method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
 
+**Machine Learning Pipeline**
 
+As a reference to other existing Machine learning Algorithm, let's try using pipelines from the library SKLearn. This algorithm, compared to the previous one, is not as effective and we are expecting a big error. To test the accuracy, we will apply a Mean Squarred Error. 
 
+```ruby
+features = df[['date','y_lbt93','area_living','area_land','n_rooms']]
+target = df['price']
+X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+```
 
 
 

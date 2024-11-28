@@ -93,10 +93,37 @@ df['date'] = pd.to_datetime(df['date']).astype('int64')/10**10
 Before scaling our datas, let's try with our raw dataset using 80% of it for training and 20% for testing :
 
 ```ruby
+#Preparing training and testing datas
+
 features = df[['date','y_lbt93','area_living','area_land','n_rooms']]
 target = df['price']
 X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+
+#Pipeline creation and training
+
+numeric_features = [ 'date','y_lbt93', 'area_living', 'area_land', 'n_rooms']
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', StandardScaler(), numeric_features)
+    ]
+)
+pipeline = Pipeline(steps=[
+    ('preprocessor', preprocessor),
+    ('model', RandomForestRegressor(random_state=42))
+])
+
+# Train the model
+
+pipeline.fit(X_train, y_train)
+
+# Evaluate the model
+
+y_pred = pipeline.predict(X_test)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+
+print("Root Mean Squared Error:", rmse)
 ```
+
 
 
 

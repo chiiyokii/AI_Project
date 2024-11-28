@@ -100,6 +100,16 @@ XGB_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)
 XGB_model.fit(X_train_scaled,y_train)
 ```
 
+```python
+y_pred = XGB_model.predict(X_test_scaled)
+y_pred = pd.DataFrame(y_pred)
+MSE_XGB = metrics.mean_squared_error(y_test, y_pred)
+RMSE_XGB =np.sqrt(MSE_XGB)
+print(RMSE_XGB)
+```
+2437.544988756981
+Our modele is able to predict the price of an accomodation with an error of 2438 euros.
+
 **Machine Learning Pipeline**
 
 As a reference to other existing Machine learning Algorithm, let's try using pipelines from the library SKLearn. This algorithm, compared to the previous one, is not as effective and we are expecting a big error. To test the accuracy, we will apply a Mean Squarred Error. 

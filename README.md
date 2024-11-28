@@ -55,7 +55,7 @@ Now that we have sorted our data, we can start to build our Machine Learning mod
 
 **eXtreme Gradient Boosting:**
 
-The second method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones. By optimizing for speed and accuracy, XGBoost uses advanced techniques like regularization, parallel processing, and tree pruning to prevent overfitting and improve performance.
+The second method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
 
 
 

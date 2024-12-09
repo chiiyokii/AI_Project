@@ -224,7 +224,7 @@ print(RMSE_XGB)
 The result we get with the last cell is the root mean squared error of the model, which is 2437.544988756981.
 Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
 
-**Machine Learning Pipeline**
+**Machine Learning Pipeline RandomForestRegressor**
 
 As a reference to other existing Machine learning Algorithm, let's try using pipelines from the library SKLearn. This algorithm, compared to the previous one, is not as effective and we are expecting a big error. To test the accuracy, we will apply a Mean Squarred Error. 
 
@@ -281,14 +281,19 @@ X_train_scaled= scaler_train.transform(X_train)
 X_test_scaled= scaler_test.transform(X_test)
 ```
 
-The values are scaled so the only thing left is to train our model using a 
-
+The values are scaled so the only thing left is to train our model using RandomForest Regressor as a base.
 
 ```python
 # Train the model
+rf_model = RandomForestRegressor(random_state=101)
+pipeline = Pipeline(steps=[
+    ('regressor', rf_model)
+])
+```
 
-pipeline.fit(X_train, y_train)
+Let's evaluate the accuracy with the Root mean squared error.
 
+```python
 # Evaluate the model
 
 y_pred = pipeline.predict(X_test)
@@ -296,7 +301,7 @@ rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
 print("Root Mean Squared Error:", rmse)
 ```
-
+Root Mean Squared Error is equal to 113624.72182751505
 
 
 

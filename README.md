@@ -116,8 +116,8 @@ MSE_XGB = metrics.mean_squared_error(y_test, y_pred)
 RMSE_XGB =np.sqrt(MSE_XGB)
 print(RMSE_XGB)
 ```
-2437.544988756981
-Our modele is able to predict the price of an accomodation with an error of 2438 euros.
+The result we get with the last cell is the root mean squared error of the model, which is 2437.544988756981.
+Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
 
 **Machine Learning Pipeline**
 

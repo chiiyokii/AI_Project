@@ -64,7 +64,7 @@ R² Score: 0.6834712840691937
 **Decision Tree**
 
 Code : 
-
+```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
@@ -98,10 +98,12 @@ r2_dt = r2_score(y_test, y_pred)
 print("Évaluation du modèle Decision Tree :")
 print(f"Mean Squared Error (MSE) : {mse_dt}")
 print(f"R² Score : {r2_dt}")
+```
 
 Results :
 Mean Squared Error (MSE) : 19024580900.28144
 R² Score : 0.589544929491228
+
 
 
 **eXtreme Gradient Boosting:**

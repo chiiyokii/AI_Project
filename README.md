@@ -230,7 +230,7 @@ As a reference to other existing Machine learning Algorithm, let's try using pip
 
 These are the libraries used during this whole process : 
 
-```ruby
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -245,7 +245,7 @@ import numpy as np
 
 First of all we need to prepare our dataset for an effective training.
 
-```ruby
+```python
 houses = pd.read_csv('housing-prices-35.csv')
 houses = houses.drop(columns=['shape_wgs','position_wgs','x_lbt93','category'])
 df = pd.DataFrame(houses)
@@ -253,13 +253,13 @@ df = pd.DataFrame(houses)
 
 To use the date, we need to convert into seconds : 
 
-```ruby
+```python
 df['date'] = pd.to_datetime(df['date']).astype('int64')/10**10
 ```
 
 Before scaling our datas, let's try with our raw dataset using 80% of it for training and 20% for testing :
 
-```ruby
+```python
 #Preparing training and testing datas
 
 features = df[['date','y_lbt93','area_living','area_land','n_rooms']]

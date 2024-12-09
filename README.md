@@ -61,6 +61,46 @@ Root Mean Squared Error (RMSE): 121124.3040192525
 
 R² Score: 0.6834712840691937
 
+**Decision Tree**
+Code : 
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+
+file_path = r"C:\Users\alexi\Documents\Cours\A3\IA project\housing-prices-35-cleaned.csv"
+data = pd.read_csv(file_path)
+
+data['date'] = pd.to_datetime(data['date'])
+data['date'] = data['date'].view('int64') // 10**9  # Convertir en timestamp UNIX
+
+data = pd.get_dummies(data, columns=['category'], drop_first=True)
+
+X = data.drop(columns=['price'])
+y = data['price']
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+dt_model = DecisionTreeRegressor(random_state=42)
+dt_model.fit(X_train, y_train)
+
+y_pred = dt_model.predict(X_test)
+
+mse_dt = mean_squared_error(y_test, y_pred)
+r2_dt = r2_score(y_test, y_pred)
+
+print("Évaluation du modèle Decision Tree :")
+print(f"Mean Squared Error (MSE) : {mse_dt}")
+print(f"R² Score : {r2_dt}")
+
+Results :
+Mean Squared Error (MSE) : 19024580900.28144
+R² Score : 0.589544929491228
+
 
 **eXtreme Gradient Boosting:**
 

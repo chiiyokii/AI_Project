@@ -251,7 +251,7 @@ houses = houses.drop(columns=['shape_wgs','position_wgs','x_lbt93','category'])
 df = pd.DataFrame(houses)
 ```
 
-To use the date, we need to convert into seconds : 
+To use the date, we need to convert into seconds, then scale it down to remove all the useless zeros : 
 
 ```python
 df['date'] = pd.to_datetime(df['date']).astype('int64')/10**10
@@ -264,21 +264,27 @@ Before scaling our datas, let's try with our raw dataset using 80% of it for tra
 
 features = df[['date','y_lbt93','area_living','area_land','n_rooms']]
 target = df['price']
-X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=101)
+```
 
+The same way we did in the XGB algorithm, lets scale use a scaling algorithm to work with small values, as it is better for our Ws. 
+
+```python
 #Pipeline creation and training
 
 numeric_features = [ 'date','y_lbt93', 'area_living', 'area_land', 'n_rooms']
-preprocessor = ColumnTransformer(
-    transformers=[
-        ('num', StandardScaler(), numeric_features)
-    ]
-)
-pipeline = Pipeline(steps=[
-    ('preprocessor', preprocessor),
-    ('model', RandomForestRegressor(random_state=42))
-])
+scaler_train= StandardScaler()
+scaler_train.fit(X_train)
+scaler_test= StandardScaler()
+scaler_test.fit(X_test)
+X_train_scaled= scaler_train.transform(X_train)
+X_test_scaled= scaler_test.transform(X_test)
+```
 
+The values are scaled so the only thing left is to train our model using a 
+
+
+```python
 # Train the model
 
 pipeline.fit(X_train, y_train)

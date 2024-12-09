@@ -184,7 +184,7 @@ from xgboost import XGBRegressor
 import warnings
 warnings.filterwarnings("ignore")
 ```
-Now that we imported our libraries and since we already checked our datas, we can start to modify our datas so they can be included more easily in our model, such as the selling and the type of accomodation.
+Now that we have imported our libraries and since we already checked our datas, we can start to modify our datas so they can be included more easily in our model, such as the selling and the type of accomodation.
 ```python
 if 'date' in df.columns:
     df['date'] = pd.to_datetime(df['date'], errors='coerce')
@@ -223,6 +223,18 @@ print(RMSE_XGB)
 ```
 The result we get with the last cell is the root mean squared error of the model, which is 2437.544988756981.
 Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
+
+To calculate the precision of our model, we will compute the precision for each accomodation and then use the mean value of these calculations to estimate the precision of our model.
+
+```python
+mErr=[]
+for price in df['price']:
+    mErr.append(abs((price-RMSE_XGB)/price))
+
+Precision=np.mean(mErr)
+print(Precision)
+```
+The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy
 
 **Machine Learning Pipeline RandomForestRegressor**
 

@@ -62,7 +62,9 @@ Root Mean Squared Error (RMSE): 121124.3040192525
 R² Score: 0.6834712840691937
 
 **Decision Tree**
+
 Code : 
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor

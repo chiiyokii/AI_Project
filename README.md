@@ -51,8 +51,71 @@ To be able to predict the price we are going to use several methods such as Rand
 **Random Forest:**
 
 Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
+Here is our code :
+```python
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+
+# Charger les données
+file_path = r"C:\Users\alexi\Documents\Cours\A3\IA project\housing-prices-35-cleaned.csv"
+data = pd.read_csv(file_path)
+
+# Prétraitement des données
+data['date'] = pd.to_datetime(data['date'])
+data['date'] = data['date'].view('int64') // 10**9  # Convertir en timestamp UNIX
+
+# Encodage des catégories
+data = pd.get_dummies(data, columns=['category'], drop_first=True)
+
+# Définir les caractéristiques (X) et la cible (y)
+X = data.drop(columns=['price'])
+y = data['price']
+
+# Mise à l'échelle des caractéristiques
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Séparer les données en ensembles d'entraînement et de test
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# Créer et entraîner le modèle Random Forest
+rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+
+# Faire des prédictions
+y_pred = rf_model.predict(X_test)
+
+# Évaluer le modèle
+mse_rf = mean_squared_error(y_test, y_pred)
+r2_rf = r2_score(y_test, y_pred)
+
+print("Évaluation du modèle Random Forest :")
+print(f"Mean Squared Error (MSE) : {mse_rf}")
+print(f"R² Score : {r2_rf}")
+
+# Importance des caractéristiques
+feature_importances = rf_model.feature_importances_
+
+# Diagramme des importances
+feature_names = np.array(X.columns)  # Convertir les noms des caractéristiques en tableau NumPy
+sorted_idx = np.argsort(feature_importances)  # Indices triés par importance
+
+plt.figure(figsize=(10, 6))
+plt.barh(feature_names[sorted_idx], feature_importances[sorted_idx], color='skyblue')  # Diagramme horizontal
+plt.xlabel("Importance des caractéristiques")
+plt.ylabel("Caractéristiques")
+plt.title("Importance des caractéristiques (Random Forest)")
+plt.tight_layout()
+plt.show()
+```
 Here are our results :
-![image](https://github.com/user-attachments/assets/40c36697-9194-48a1-aed5-bfe7b161d53c)
+![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
+
 Random Forest Model Evaluation:
 
 Mean Squared Error (MSE) : 14601154703.797789

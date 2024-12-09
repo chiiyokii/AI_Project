@@ -6,7 +6,6 @@
 
 
 
-
 **Group members :**
 
 |        Name       |        Major           |
@@ -52,6 +51,7 @@ To be able to predict the price we are going to use several methods such as Rand
 
 Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
 Here is our code :
+
 ```python
 import pandas as pd
 import numpy as np
@@ -61,52 +61,53 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
-# Charger les données
+# Here we are loading the data
 file_path = r"C:\Users\alexi\Documents\Cours\A3\IA project\housing-prices-35-cleaned.csv"
 data = pd.read_csv(file_path)
 
-# Prétraitement des données
+# Here we convert the date in timestamp UNIX to be able to have the date in int because that will make it easier to use it
 data['date'] = pd.to_datetime(data['date'])
-data['date'] = data['date'].view('int64') // 10**9  # Convertir en timestamp UNIX
+data['date'] = data['date'].view('int64') // 10**9  
 
-# Encodage des catégories
+
 data = pd.get_dummies(data, columns=['category'], drop_first=True)
 
-# Définir les caractéristiques (X) et la cible (y)
+# Here we define the caracteristics (X) and the target (y)
 X = data.drop(columns=['price'])
 y = data['price']
 
-# Mise à l'échelle des caractéristiques
+# We put the caracteristics on the right scale
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# Séparer les données en ensembles d'entraînement et de test
+# Then we split the data between training and testing
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
-# Créer et entraîner le modèle Random Forest
+# We create and train the random forest model
 rf_model = RandomForestRegressor(n_estimators=100, random_state=42)
 rf_model.fit(X_train, y_train)
 
-# Faire des prédictions
+# We do the prediction
 y_pred = rf_model.predict(X_test)
 
-# Évaluer le modèle
+# Finally, we calculate the mean squared error and r2 to be able to see how accurate our model is.
 mse_rf = mean_squared_error(y_test, y_pred)
 r2_rf = r2_score(y_test, y_pred)
 
-print("Évaluation du modèle Random Forest :")
+# We print the results
+print("Random Forest Model Evaluation :")
 print(f"Mean Squared Error (MSE) : {mse_rf}")
 print(f"R² Score : {r2_rf}")
 
-# Importance des caractéristiques
+# Now we are doing the diagram of the importance of the features
 feature_importances = rf_model.feature_importances_
 
-# Diagramme des importances
-feature_names = np.array(X.columns)  # Convertir les noms des caractéristiques en tableau NumPy
-sorted_idx = np.argsort(feature_importances)  # Indices triés par importance
+# We convert the caracteristics names in a Numpy array
+feature_names = np.array(X.columns)  
+sorted_idx = np.argsort(feature_importances) 
 
 plt.figure(figsize=(10, 6))
-plt.barh(feature_names[sorted_idx], feature_importances[sorted_idx], color='skyblue')  # Diagramme horizontal
+plt.barh(feature_names[sorted_idx], feature_importances[sorted_idx], color='skyblue')
 plt.xlabel("Importance des caractéristiques")
 plt.ylabel("Caractéristiques")
 plt.title("Importance des caractéristiques (Random Forest)")

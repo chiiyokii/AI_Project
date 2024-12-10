@@ -33,13 +33,19 @@ Here is the Dataset from kaggle we will use : [DatasetOfHousingPrice](https://ww
 
 ## **Description of the dataset**
 
-This dataset contains 10 columns: **selling date, GPS coordinates, position on the x-axis, position on the y-axis, category** (e.g., house or condo)**, living area, land area, number of rooms, building shape, and price**.The dataset includes **numerical features** such as selling date, living area (in square meters), number of rooms, and coordinates (x and y positions). Additionally, it has boolean features, such as whether the property is a house or a condo. We chose this dataset because its features are highly relevant for predicting housing prices. Moreover, the data comes from **actual properties** in Ille-et-Vilaine, making the price predictions more realistic and applicable to the local market.   
+This dataset contains 10 columns: **selling date, GPS coordinates, position on the x-axis, position on the y-axis, category** (e.g., house or condo)**, living area, land area, number of rooms, building shape, and price**. The dataset includes **numerical features** such as selling date, living area (in square meters), number of rooms, and coordinates (x and y positions). Additionally, it has boolean features, such as whether the property is a house or a condo. 
 
-After analyzing the content of the dataset, we noticed that some of the features were not usefull, indeed having the gps position and the position on x and y axis is not necessary. Thus we decided not to use the gps coordinates along with the shape of the house. 
+We chose this dataset because its features are highly relevant for predicting housing prices. Moreover, the data comes from **actual properties** in Ille-et-Vilaine, making the price predictions more realistic and applicable to the local market.   
 
-Our first step is to understand our dataset with statistic analysis. Especially to look for null and unique values. This process also allows us to understand all the correlations between the features. In our case, we are looking for the features strongly correlated with the price, and identify those who are not.
+After analyzing the dataset, we identified some features as unnecessary. Specifically, having both GPS coordinates and x/y position data is redundant, so we decided to exclude the GPS coordinates. We chose not to use the "shape of the house" feature, as it is not directly relevant to our price predictions. 
 
-The second step is to train multiple ML model to compare results and accuracy. We plan to use between three and four different ML techniques to achieve our goal.
+## **Approach and Methodology**
+
+### **1. Dataset Analysis**
+Our first step is to analyze the dataset using statistical methods. This includes checking for null values, identifying unique values, and understanding correlations between features. In particular, we aim to identify features that are strongly correlated with the price and exclude those that are not.
+
+### **2. Model Training and Comparison**
+Next, we will train several machine learning models and compare their performance and accuracy. We plan to use three to four different ML techniques to determine which approach yields the most reliable price predictions.
 
 ## **A Quick Data Analysis:**
 

@@ -53,7 +53,7 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 
 &emsp;&emsp;&emsp;![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 
-### Relevant features
+### **1. Relevant features**
 &emsp;&emsp;Before building our machine learning model, we need to gain a deeper **understanding of our dataset**. As mentioned earlier, it consists of ten features: **selling date, x coordinates, y coordinates, category** (e.g., house or condo)**, living area** (in square meters)**, land area** (in square meters)**, number of rooms, shape of the building, and price**. The goal of our model is to predict the price of a house, making it our **target feature**. To achieve this, we need to analyze the dataset thoroughly to identify the most useful features to include in the model. For this purpose, we conducted a statistical analysis, using a **correlation heatmap** to examine the relationships between features and determine which ones are most relevant for predicting price.
 
 ![image](https://github.com/user-attachments/assets/273b4f09-c597-472c-85d3-b7bbb27810a6)
@@ -63,7 +63,7 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
-### Additional analysis
+### **2. Additional analysis**
 
 Here is a map of all the prices.
 
@@ -71,7 +71,7 @@ Here is a map of all the prices.
 
 It is logical that the highest prices are grouped around the large city of Rennes and around the seaside resort of Saint Malo (in the north).
 
-## **Random Forest**
+## **1. Random Forest**
 
 &emsp;&emsp;For our first machine learning model, we chose Random Forest. It is a popular algorithm and one of the first machine learning techniques we learned, making it a natural starting point for this project.
 
@@ -150,7 +150,7 @@ Here is our results :
 ![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
 
 
-## **Decision Tree**
+## **2. Decision Tree**
 
 To train the decision tree model, we are going to use the same code except for the libraries and the training parts.
 
@@ -180,7 +180,7 @@ R² Score : 0.589544929491228**
 
 
 
-## **eXtreme Gradient Boosting:**
+## **3. eXtreme Gradient Boosting:**
 
 The third method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
 
@@ -254,7 +254,7 @@ print(Precision)
 ```
 The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
 
-## **Pipeline using RandomForestRegressor**
+## **4. Pipeline using RandomForestRegressor**
 
 As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use different error indicators like the **Mean Squared Error (MSE)** as our performance metrics.
 

@@ -63,7 +63,7 @@ Thus we now have seven features, making our data set a [148 279,7] matrix. Our t
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
 
-## **Random Forest:**
+## **Random Forest**
 
 &emsp;&emsp;For the first Machine learning model, we chose Random Forest as it is very popular and it is one of the first ML technique we learned.
 
@@ -75,6 +75,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
+```
 
 # Here we are loading the data
 file_path = r"C:\Users\alexi\Documents\Cours\A3\IA project\housing-prices-35-cleaned.csv"

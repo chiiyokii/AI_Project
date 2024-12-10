@@ -85,16 +85,21 @@ data['date'] = pd.to_datetime(data['date'])
 data['date'] = data['date'].view('int64') // 10**9  
 ```
 
-data = pd.get_dummies(data, columns=['category'], drop_first=True)
+Seperating the target feature from the rest of the features and scaling all the values
 
-# Here we define the caracteristics (X) and the target (y)
+```python
+data = pd.get_dummies(data, columns=['category'], drop_first=True)
+#Here we define the caracteristics (X) and the target (y)
 X = data.drop(columns=['price'])
 y = data['price']
-
-# We put the caracteristics on the right scale
+#We put the caracteristics on the right scale
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
+```
 
+Let's train our Random Forest model and test the accuracy. We will use 80% of the dataset to train and the remaining to test the accuracy of our model
+
+```python
 # Then we split the data between training and testing
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
@@ -108,13 +113,16 @@ y_pred = rf_model.predict(X_test)
 # Finally, we calculate the mean squared error and r2 to be able to see how accurate our model is.
 mse_rf = mean_squared_error(y_test, y_pred)
 r2_rf = r2_score(y_test, y_pred)
+```
 
-# We print the results
-print("Random Forest Model Evaluation :")
-print(f"Mean Squared Error (MSE) : {mse_rf}")
-print(f"R² Score : {r2_rf}")
+**Mean Squared Error (MSE) : 14601154703.797789
+Mean Squared Error (MSE) : 14601154703.797789
+R² Score : 0.685**
 
-# Now we are doing the diagram of the importance of the features
+
+# Diagram of the importance of the features
+
+```python
 feature_importances = rf_model.feature_importances_
 
 # We convert the caracteristics names in a Numpy array
@@ -128,16 +136,13 @@ plt.ylabel("Caractéristiques")
 plt.title("Importance des caractéristiques (Random Forest)")
 plt.tight_layout()
 plt.show()
+```
 
-Here are our results :
+Here is our results :
 ![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
 
-Random Forest Model Evaluation:
 
-Mean Squared Error (MSE) : 14601154703.797789
-R² Score : 0.6849802886660095
-
-**Decision Tree**
+## **Decision Tree**
 
 Code : 
 ```python

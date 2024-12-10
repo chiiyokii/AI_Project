@@ -62,10 +62,10 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
+
 ## **Random Forest:**
 
-Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
-Here is our code :
+&emsp;&emsp;For the first Machine learning model, we chose Random Forest as it is very popular and it is one of the first ML technique we learned.
 
 ```python
 import pandas as pd

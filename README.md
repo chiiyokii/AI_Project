@@ -65,7 +65,7 @@ To be able to predict the price we are going to use several methods such as Rand
 
 ### **2. Additional analysis**
 
-Here is a map of all the prices.
+Here is a map of all the prices by quantiles.
 
 ![Image](https://github.com/user-attachments/assets/104b1458-8e9a-4991-b626-ab2c5e6e2e40)
 
@@ -265,7 +265,6 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler, LabelEncoder
@@ -308,12 +307,12 @@ X = df_ml.drop('price', axis=1)
 y = df_ml['price']
 features = df_ml[['x_lbt93','y_lbt93','area_living','area_land','n_rooms','date_encoded','category_encoded']]
 target = df_ml['price']
-X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=101)
 ```
-
+### **Training the model**
 &emsp;&emsp;The only thing left is to train our model using RandomForestRegressor as a base.
 
 ```python
+X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=101)
 rf_model = RandomForestRegressor(random_state=42)
 pipeline = Pipeline(steps=[
     ('regressor', rf_model)
@@ -337,6 +336,27 @@ print(f"R2: {r2_score(y_test, y_pred)}")
 **Mean Squared Error** : **5617448228.**
 **R2** : **0.696**
 
+## **V. Linear Regression**
 
+For a Linear Regression based ML model, we'll use the same code as the pipeline, but using the 'LinearRegression' library instead of the pipeline one. We will also adapt the training part.
 
+```python
+from sklearn.linear_model import LinearRegression
+```
+
+### **Training the model**
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+y_pred_lr = lr.predict(X_test)
+```
+
+Linear regression accuracy : 
+**Root Mean Squared Error: 105405.09555290533
+MAE: 62463.86799364371
+MSE: 11110234168.517103
+R2: 0.3988599701918526**
 

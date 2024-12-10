@@ -120,7 +120,7 @@ Mean Squared Error (MSE) : 14601154703.797789
 R² Score : 0.685**
 
 
-# Diagram of the importance of the features
+### Diagram of the importance of the features
 
 ```python
 feature_importances = rf_model.feature_importances_

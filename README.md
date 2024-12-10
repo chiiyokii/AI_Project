@@ -234,7 +234,7 @@ for price in df['price']:
 Precision=np.mean(mErr)
 print(Precision)
 ```
-The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy
+The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
 
 **Machine Learning Pipeline RandomForestRegressor**
 

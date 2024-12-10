@@ -49,14 +49,15 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 
 ## **Quick Data Analysis:**
 
-![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 
-Before we start building our Machine Learning model, we need to understand our dataset on a deeper level. As said previously, it is composed of ten features : Selling date, x coordinates, y coordinates, category, area of living (in square meters), area of the land (in square meters), number of rooms, the shape of the building and the price. Our model should be able to predict the price of a house, meaning that this should be our target feature. Thus, we need to analyse our dataset to help us identify the usefull features reamaining in our dataset. It is for this purpose that we did a statiscal analysis of our dataset using a correlation heat map. 
+
+&emsp;&emsp;&emsp;![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
+
+&emsp;&emsp;Before building our machine learning model, we need to gain a deeper **understanding of our dataset**. As mentioned earlier, it consists of ten features: **selling date, x coordinates, y coordinates, category** (e.g., house or condo)**, living area** (in square meters)**, land area** (in square meters)**, number of rooms, shape of the building, and price**. The goal of our model is to predict the price of a house, making it our **target feature**. To achieve this, we need to analyze the dataset thoroughly to identify the most useful features to include in the model. For this purpose, we conducted a statistical analysis, using a **correlation heatmap** to examine the relationships between features and determine which ones are most relevant for predicting price.
 
 ![image](https://github.com/user-attachments/assets/273b4f09-c597-472c-85d3-b7bbb27810a6)
 
-The results of this analysis are shown above in this heat map. As we can see, the features that have the strongest correlation to the price of a house are, as we could have expected, the number of rooms and the area of living, making these two features the most important for our model. The area of land, the selling date and the y_axis position are also correlated but on the opposite, the category of the accomodation and the x_axis position are negatively correlated to the price. We also decided not to include the gps coordinates because of the existance of the x and y positions in the dataset. We thought about setting aside the shape of the apartment because of the lack of data.
-
+&emsp;&emsp;The results of our analysis are shown in the heatmap above. As expected, the features most strongly correlated with house prices are the **number of rooms and the living area**, making them the most important variables for our model. Additionally, land area, selling date, and y-axis position also show notable correlations with price.On the other hand, the category of accommodation and the x-axis position are negatively correlated with price. To simplify our model, we decided not to include GPS coordinates, as the dataset already contains x and y position data. Furthermore, we chose to exclude the shape of the building due to insufficient data for this feature.
 
 Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.

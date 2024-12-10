@@ -144,9 +144,9 @@ Here is our results :
 
 ## **Decision Tree**
 
-To train a decision tree machine learning model, we are going to use the same code except for the libraries and the training part.
+To train the decision tree model, we are going to use the same code except for the libraries and the training parts.
 
-Here are the necessary libraries we plan to use :
+Here are the necessary libraries we plan to use.
 
 ```python
 import pandas as pd
@@ -156,7 +156,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler
 ```
 
-
+Training part adapted to decision tree.
 
 ```python
 dt_model = DecisionTreeRegressor(random_state=42)
@@ -167,8 +167,8 @@ r2_dt = r2_score(y_test, y_pred)
 ```
 
 Results :
-Mean Squared Error (MSE) : 19024580900.28144
-R² Score : 0.589544929491228
+**Mean Squared Error (MSE) : 19024580900.28144
+R² Score : 0.589544929491228**
 
 
 
@@ -246,7 +246,7 @@ print(Precision)
 ```
 The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
 
-## **Machine Learning Pipeline using RandomForestRegressor**
+## **MPipeline using RandomForestRegressor**
 
 As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use different error indicators like the **Mean Squared Error (MSE)** as our performance metrics.
 

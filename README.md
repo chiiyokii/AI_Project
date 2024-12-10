@@ -47,7 +47,7 @@ Our first step is to analyze the dataset using statistical methods. This include
 ### **2. Model Training and Comparison**
 Next, we will train several machine learning models and compare their performance and accuracy. We plan to use three to four different ML techniques to determine which approach yields the most reliable price predictions.
 
-## **A Quick Data Analysis:**
+## **Quick Data Analysis:**
 
 ![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 

@@ -270,7 +270,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 ```
 
-### **Dataset Preparation**
+### **1. Dataset Preparation**
 
 &emsp;&emsp;First of all, we need to prepare our dataset for an effective training. We will first get the dataset and remove all duplicates.
 
@@ -308,7 +308,7 @@ y = df_ml['price']
 features = df_ml[['x_lbt93','y_lbt93','area_living','area_land','n_rooms','date_encoded','category_encoded']]
 target = df_ml['price']
 ```
-### **Training the model**
+### **2. Training the model**
 &emsp;&emsp;The only thing left is to train our model using RandomForestRegressor as a base.
 
 ```python

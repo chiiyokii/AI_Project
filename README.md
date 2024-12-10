@@ -31,6 +31,8 @@ This model allows users to quickly get an initial idea of a **property's value**
 
 Here is the Dataset from kaggle we will use : [DatasetOfHousingPrice](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr)
 
+## **Description of the dataset**
+
 This dataset contains 10 columns: **selling date, GPS coordinates, position on the x-axis, position on the y-axis, category** (e.g., house or condo)**, living area, land area, number of rooms, building shape, and price**.The dataset includes **numerical features** such as selling date, living area (in square meters), number of rooms, and coordinates (x and y positions). Additionally, it has boolean features, such as whether the property is a house or a condo. We chose this dataset because its features are highly relevant for predicting housing prices. Moreover, the data comes from **actual properties** in Ille-et-Vilaine, making the price predictions more realistic and applicable to the local market.   
 
 After analyzing the content of the dataset, we noticed that some of the features were not usefull, indeed having the gps position and the position on x and y axis is not necessary. Thus we decided not to use the gps coordinates along with the shape of the house. 

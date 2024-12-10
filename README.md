@@ -65,7 +65,7 @@ To be able to predict the price we are going to use several methods such as Rand
 
 ## **Random Forest**
 
-&emsp;&emsp;For the first Machine learning model, we chose Random Forest as it is very popular and it is one of the first ML technique we learned.
+&emsp;&emsp;For our first machine learning model, we chose Random Forest. It is a popular algorithm and one of the first machine learning techniques we learned, making it a natural starting point for this project.
 
 ```python
 import pandas as pd
@@ -77,14 +77,13 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 ```
 
-# Here we are loading the data
-file_path = r"C:\Users\alexi\Documents\Cours\A3\IA project\housing-prices-35-cleaned.csv"
-data = pd.read_csv(file_path)
+Here we convert the date in timestamp UNIX to be able to have the date in int because that will make it easier to use it
 
-# Here we convert the date in timestamp UNIX to be able to have the date in int because that will make it easier to use it
+```python
+data = pd.read_csv(housing-prices-35.csv)
 data['date'] = pd.to_datetime(data['date'])
 data['date'] = data['date'].view('int64') // 10**9  
-
+```
 
 data = pd.get_dummies(data, columns=['category'], drop_first=True)
 
@@ -129,7 +128,7 @@ plt.ylabel("Caractéristiques")
 plt.title("Importance des caractéristiques (Random Forest)")
 plt.tight_layout()
 plt.show()
-```
+
 Here are our results :
 ![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
 

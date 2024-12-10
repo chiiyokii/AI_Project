@@ -283,7 +283,7 @@ df2 = df
 df2 = df2.drop_duplicates()
 ```
 
-&emsp;Next step is to **drop** the useless features and **encode** both the **date** and **category** to optimize the machine learning process.
+&emsp;&emsp;Next step is to **drop** the useless features and **encode** both the **date** and **category** to optimize the machine learning process.
 
 ```python
 df_ml = df2.drop(['position_wgs', 'shape_wgs'], axis=1)
@@ -295,35 +295,24 @@ df_ml['category_encoded'] = label_encoder.fit_transform(df_ml['category'])
 df_ml = df_ml.drop('category', axis=1)
 ```
 
-&emsp;To use the date, we need to normalize every column. This allows the algorithm to work with smaller values and be more efficient : 
+&emsp;&emsp;To use the dataset, we need to normalize every column. After testing scaling (as we did for XGB algorithm) and normalizing, normalizing proves to be the most accurate way to do. This allows the algorithm to work with smaller values and be more efficient : 
 
 ```python
-
+column_to_normalise = ['x_lbt93', 'y_lbt93', 'area_living', 'area_land', 'n_rooms']
+scaler = StandardScaler()
+df_ml[column_to_normalise] = scaler.fit_transform(df_ml[column_to_normalise])
 ```
 
-Before scaling our datas, let's try with our raw dataset using 80% of it for training and 20% for testing :
+&emsp;&emsp;Let's try using 80% of our dataset for training and 20% for testing :
 
 ```python
-#Preparing training and testing datas
-
-features = df[['date','y_lbt93','area_living','area_land','n_rooms']]
-target = df['price']
+X = df_ml.drop('price', axis=1)
+y = df_ml['price']
+features = df_ml[['x_lbt93','y_lbt93','area_living','area_land','n_rooms','date_encoded','category_encoded']]
+target = df_ml['price']
 X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=101)
 ```
 
-The same way we did in the XGB algorithm, lets scale use a scaling algorithm to work with small values, as it is better for our Ws. 
-
-```python
-#Pipeline creation and training
-
-numeric_features = [ 'date','y_lbt93', 'area_living', 'area_land', 'n_rooms']
-scaler_train= StandardScaler()
-scaler_train.fit(X_train)
-scaler_test= StandardScaler()
-scaler_test.fit(X_test)
-X_train_scaled= scaler_train.transform(X_train)
-X_test_scaled= scaler_test.transform(X_test)
-```
 
 The values are scaled so the only thing left is to train our model using RandomForest Regressor as a base.
 

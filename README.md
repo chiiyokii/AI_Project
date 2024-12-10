@@ -71,7 +71,7 @@ Here is a map of all the prices.
 
 It is logical that the highest prices are grouped around the large city of Rennes and around the seaside resort of Saint Malo (in the north).
 
-## **1. Random Forest**
+## **I. Random Forest**
 
 &emsp;&emsp;For our first machine learning model, we chose Random Forest. It is a popular algorithm and one of the first machine learning techniques we learned, making it a natural starting point for this project.
 
@@ -150,7 +150,7 @@ Here is our results :
 ![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
 
 
-## **2. Decision Tree**
+## **II. Decision Tree**
 
 To train the decision tree model, we are going to use the same code except for the libraries and the training parts.
 
@@ -180,7 +180,7 @@ R² Score : 0.589544929491228**
 
 
 
-## **3. eXtreme Gradient Boosting:**
+## **III. eXtreme Gradient Boosting:**
 
 The third method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
 
@@ -254,7 +254,7 @@ print(Precision)
 ```
 The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
 
-## **4. Pipeline using RandomForestRegressor**
+## **IV. Pipeline using RandomForestRegressor**
 
 As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use different error indicators like the **Mean Squared Error (MSE)** as our performance metrics.
 

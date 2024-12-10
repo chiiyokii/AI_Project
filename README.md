@@ -202,7 +202,10 @@ df['price'] = pd.factorize(df['price'])[0] + 1
 X = df.drop(['price'], axis = 1)
 y = df['price']
 X_train, X_test, y_train, y_test= train_test_split(X, y, test_size=0.3, random_state=101)
+```
+In the code cell above, we select our target feature and we split our data set into a test part and a training part. Here, we decided to use 30% of our data set as a testing part.
 
+```python
 scaler_train= StandardScaler()
 scaler_train.fit(X_train)
 scaler_test= StandardScaler()
@@ -213,7 +216,8 @@ X_test_scaled= scaler_test.transform(X_test)
 XGB_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)
 XGB_model.fit(X_train_scaled,y_train)
 ```
-
+In this part of the code, we first use a standard scaler to standardize our features, ensuring they are all on a similar scale. Standardization is use to make sure our XGboost will perform better. 
+Then we finally build our model using the XGBRegressor method, which in our case will use 1000 estimators corresponding to the number of trees the model will use, and a learning of 0.05. 
 ```python
 y_pred = XGB_model.predict(X_test_scaled)
 y_pred = pd.DataFrame(y_pred)
@@ -221,7 +225,8 @@ MSE_XGB = metrics.mean_squared_error(y_test, y_pred)
 RMSE_XGB =np.sqrt(MSE_XGB)
 print(RMSE_XGB)
 ```
-The result we get with the last cell is the root mean squared error of the model, which is 2437.544988756981.
+After the training and the testing part, we use the root mean squared error formula to calculate the error of our model.
+The value we get with this method of calculation is 2437.544988756981.
 Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
 
 To calculate the precision of our model, we will compute the precision for each accomodation and then use the mean value of these calculations to estimate the precision of our model.

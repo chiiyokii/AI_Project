@@ -62,7 +62,7 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
-**Random Forest:**
+## **Random Forest:**
 
 Now that we have sorted our data, we can start to build our Machine Learning model by using at first randomforest.
 Here is our code :
@@ -182,7 +182,7 @@ R² Score : 0.589544929491228
 
 
 
-**eXtreme Gradient Boosting:**
+## **eXtreme Gradient Boosting:**
 
 The third method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
 
@@ -256,37 +256,49 @@ print(Precision)
 ```
 The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
 
-**Machine Learning Pipeline RandomForestRegressor**
+## **Machine Learning Pipeline using RandomForestRegressor**
 
-As a reference to other existing Machine learning Algorithm, let's try using pipelines from the library SKLearn. This algorithm, compared to the previous one, is not as effective and we are expecting a big error. To test the accuracy, we will apply a Mean Squarred Error. 
+As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use the **Mean Squared Error (MSE)** as our performance metric.
 
 These are the libraries used during this whole process : 
 
 ```python
+import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-from sklearn.compose import ColumnTransformer
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
-import numpy as np
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 ```
 
-First of all we need to prepare our dataset for an effective training.
+### **Dataset Preparation**
+
+&emsp;&emsp;First of all, we need to prepare our dataset for an effective training. We will first get the dataset and remove all duplicates.
 
 ```python
-houses = pd.read_csv('housing-prices-35.csv')
-houses = houses.drop(columns=['shape_wgs','position_wgs','x_lbt93','category'])
-df = pd.DataFrame(houses)
+df = pd.read_csv("housing-prices-35.csv")
+df2 = df
+df2 = df2.drop_duplicates()
 ```
 
-To use the date, we need to convert into seconds, then scale it down to remove all the useless zeros : 
+&emsp;Next step is to **drop** the useless features and **encode** both the **date** and **category** to optimize the machine learning process.
 
 ```python
-df['date'] = pd.to_datetime(df['date']).astype('int64')/10**10
+df_ml = df2.drop(['position_wgs', 'shape_wgs'], axis=1)
+df_ml = df_ml.sort_values('date')
+df_ml['date_encoded'] = range(len(df_ml))
+df_ml = df_ml.drop('date', axis=1)
+label_encoder = LabelEncoder()
+df_ml['category_encoded'] = label_encoder.fit_transform(df_ml['category'])
+df_ml = df_ml.drop('category', axis=1)
+```
+
+&emsp;To use the date, we need to normalize every column. This allows the algorithm to work with smaller values and be more efficient : 
+
+```python
+
 ```
 
 Before scaling our datas, let's try with our raw dataset using 80% of it for training and 20% for testing :

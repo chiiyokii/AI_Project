@@ -53,6 +53,7 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 
 &emsp;&emsp;&emsp;![image](https://github.com/user-attachments/assets/75db4345-3d2f-4b10-b9fd-83c894216b39)
 
+### Relevant features
 &emsp;&emsp;Before building our machine learning model, we need to gain a deeper **understanding of our dataset**. As mentioned earlier, it consists of ten features: **selling date, x coordinates, y coordinates, category** (e.g., house or condo)**, living area** (in square meters)**, land area** (in square meters)**, number of rooms, shape of the building, and price**. The goal of our model is to predict the price of a house, making it our **target feature**. To achieve this, we need to analyze the dataset thoroughly to identify the most useful features to include in the model. For this purpose, we conducted a statistical analysis, using a **correlation heatmap** to examine the relationships between features and determine which ones are most relevant for predicting price.
 
 ![image](https://github.com/user-attachments/assets/273b4f09-c597-472c-85d3-b7bbb27810a6)
@@ -62,6 +63,13 @@ After analyzing the dataset, we identified **some features as unnecessary**. Spe
 Thus we now have seven features, making our data set a [148 279,7] matrix. Our target feature being the price, we have now six features to work with.
 To be able to predict the price we are going to use several methods such as Random forest, decision tree and XGB to see which one is the most effective.
 
+### Additional analysis
+
+Here is a map of all the prices.
+
+![Image](https://github.com/user-attachments/assets/104b1458-8e9a-4991-b626-ab2c5e6e2e40)
+
+It is logical that the highest prices are grouped around the large city of Rennes and around the seaside resort of Saint Malo (in the north).
 
 ## **Random Forest**
 

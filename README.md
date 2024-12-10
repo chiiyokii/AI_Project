@@ -21,8 +21,11 @@
 
 
 &emsp;Brittany is one of the most beautiful regions in France. With its charming cows, delicious crêpes, and famous kouign-amann, it offers everything you need for an unforgettable vacation. 
+
 However, the growing popularity of this destination among French travelers has caused the housing market to skyrocket. Every day, around a hundred apartments and houses are sold, and currently, there are 13% more buyers than sellers, driving prices even higher. 
+
 As a buyer, it’s essential to ensure that the lovely home you want is fairly priced. To help with this, we’ve developed an AI model designed to predict the selling prices of properties. Our goal is to create a machine learning tool that accurately estimates house prices based on market conditions, whether you're looking to buy or sell. 
+
 This model allows users to quickly get an initial idea of a **property's value** without going through lengthy processes with real estate agencies.
 
 

@@ -258,7 +258,7 @@ The output is 0.9778755555933469, which means that our model is able to predict 
 
 ## **Machine Learning Pipeline using RandomForestRegressor**
 
-As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use the **Mean Squared Error (MSE)** as our performance metric.
+As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use different error indicators like the **Mean Squared Error (MSE)** as our performance metrics.
 
 These are the libraries used during this whole process : 
 
@@ -313,28 +313,31 @@ target = df_ml['price']
 X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=101)
 ```
 
-
-The values are scaled so the only thing left is to train our model using RandomForest Regressor as a base.
+&emsp;&emsp;The only thing left is to train our model using RandomForestRegressor as a base.
 
 ```python
-# Train the model
-rf_model = RandomForestRegressor(random_state=101)
+rf_model = RandomForestRegressor(random_state=42)
 pipeline = Pipeline(steps=[
     ('regressor', rf_model)
 ])
+pipeline.fit(X_train, y_train)
 ```
 
-Let's evaluate the accuracy with the Root mean squared error.
+Let's evaluate the accuracy.
 
 ```python
-# Evaluate the model
-
 y_pred = pipeline.predict(X_test)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-
 print("Root Mean Squared Error:", rmse)
+print(f"MAE: {mean_absolute_error(y_test, y_pred)}")
+print(f"MSE: {mean_squared_error(y_test, y_pred)}")
+print(f"R2: {r2_score(y_test, y_pred)}")
 ```
-Root Mean Squared Error is equal to 113624.72182751505
+
+**Root Mean Squared Error** : **74949.64 euros**.
+**Mean Absolute Error** : **38363.59**
+**Mean Squared Error** : **5617448228.**
+**R2** : **0.696**
 
 
 

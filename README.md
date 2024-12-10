@@ -246,7 +246,7 @@ print(Precision)
 ```
 The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
 
-## **MPipeline using RandomForestRegressor**
+## **Pipeline using RandomForestRegressor**
 
 As a reference to other existing machine learning algorithms, we decided to use pipelines from the SKLearn library. While this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use different error indicators like the **Mean Squared Error (MSE)** as our performance metrics.
 

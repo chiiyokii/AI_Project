@@ -451,4 +451,5 @@ The raw dataset contained several unnecessary features and values on different s
 
 # **Related Work**
 
-[SkLearn_RandomForest_Regressor](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr](https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
+Inspired by these sources for RandomForest Regressor : [SkLearn_RandomForest_Regressor1](https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestRegressor.html), [Randomforest_regression](https://www.geeksforgeeks.org/random-forest-regression-in-python/)
+

@@ -71,7 +71,7 @@ To be able to predict the price we are going to use several methods such as Rand
 
 It is logical that the highest prices are grouped around the large city of Rennes and around the seaside resort of Saint Malo (in the north).
 
-&emsp;The time and date is a relevant indicator of the price as it is the only variable reflecting the market ups and downs.
+&emsp;The **time and date** is a relevant indicator of the price as it is the only variable reflecting the market ups and downs.
 
 ![Screenshot 2024-12-11 165825](https://github.com/user-attachments/assets/8afc3f43-767a-495a-b542-eb0526b36a53)
 

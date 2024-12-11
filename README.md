@@ -276,7 +276,6 @@ We convert our date into integers and the type of accomodation into either a 0 o
 Once this is done, we can start to prepare our model.
 
 ```python
-df['price'] = pd.factorize(df['price'])[0] + 1
 X = df.drop(['price'], axis = 1)
 y = df['price']
 X_train, X_test, y_train, y_test= train_test_split(X, y, test_size=0.3, random_state=101)
@@ -304,20 +303,7 @@ RMSE_XGB =np.sqrt(MSE_XGB)
 print(RMSE_XGB)
 ```
 After the training and the testing part, we use the root mean squared error formula to calculate the error of our model.
-The value we get with this method of calculation is 2437.544988756981.
-Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
-
-To calculate the precision of our model, we will compute the precision for each accomodation and then use the mean value of these calculations to estimate the precision of our model.
-
-```python
-mErr=[]
-for price in df['price']:
-    mErr.append(abs((price-RMSE_XGB)/price))
-
-Precision=np.mean(mErr)
-print(Precision)
-```
-The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
+The value we get with this method of calculation is 86084.0307.
 
 
 ## **V. Linear Regression**
@@ -352,7 +338,7 @@ Here are our results grouped in a table. As we can see, the most efficient model
 |------------------|-------------------|
 |  Random Forest   | 120835.24         |
 | Decision Tree    | 137929.62         |
-|       XGB        | 2437.55           |
+|       XGB        | 86084.40          |
 |     Pipeline     | 74949.64          |
 |Linear Regression | 105405.10         |
 
@@ -388,7 +374,7 @@ Here is our results :
 
 ### XBG
 
-![image](https://github.com/user-attachments/assets/367b12b8-f35e-4489-bf0f-4773fcb87d72)
+![image](https://github.com/user-attachments/assets/d8887d6d-50fa-43f7-9d6e-d3fcc8196242)
 
 
 ### Pipeline
@@ -413,9 +399,9 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/e86d449c-d0e2-4392-929b-af13f74b54d4)
 
-On these graphics, we can see that a certain tendency appears in relation to the distribution of the values. Indeed, all the models beside the XGB tend to have a very large difference between the importance of the features. It also seems that for the decision tree, the random forest model and the linear regression, the most important feature is by far the area of living of the accomodation, whereas for the pipeline this feature is the third more important after the date and the y axis position. With these graphics, we can see why the random forest, the decision tree and the linear regression all have a RMSE of the same order of magnitude, whereas the pipeline model which has a lower error is using the same pattern for the importance of the features but not in the same order.
+On these graphics, we can see that a certain tendency appears in relation to the distribution of the values. Indeed, all the models tend to have a very large difference between the importance of the features. It also seems that for the decision tree, the random forest model, the XGB and the linear regression, the most important feature is by far the area of living of the accomodation, whereas for the pipeline this feature is the third more important after the date and the y axis position. With these graphics, we can see why the random forest, the decision tree and the linear regression all have a RMSE of the same order of magnitude, whereas the pipeline model which has a lower error is using the same pattern for the importance of the features but not in the same order.
 
-For the XGB the results are totally different. Indeed the graphic shows us that the model classifies all the feature with the same importance. Thus we can assume that the main Reason why the XGB model is so precise is because of this repartition of the features' importance.  
+
 
 
 ## **Error distribution by price**
@@ -445,7 +431,7 @@ plt.show()
 
 ![grapgh](https://github.com/user-attachments/assets/05226707-26e2-42ba-b7fe-f782e3f6def7)
 
-### XBG
+### XGB
 
 ![grapgh4](https://github.com/user-attachments/assets/887b3480-eec9-42d7-879e-a21b1fc8397e)
 

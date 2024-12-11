@@ -259,8 +259,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 import metrics
-import warnings
-warnings.filterwarnings("ignore")
+
 ```
 Now that we have imported our libraries and since we already checked our datas, we can start to modify our datas so they can be included more easily in our model, such as the selling and the type of accomodation.
 ```python

@@ -159,6 +159,7 @@ r2_dt = r2_score(y_test, y_pred)
 
 Results :
 **Mean Squared Error (MSE) : 19024580900.28144
+Root Mean Squared Error (RMSE) : 137929.62299767748
 R² Score : 0.589544929491228**
 
 
@@ -344,6 +345,14 @@ MSE: 11110234168.517103
 R2: 0.3988599701918526**
 
 # **Evaluation & Analysis**
+
+|      Model     |        RMSE         |
+|------------------|-------------------|
+|  Random Forest   | 120835.24         |
+| Decision Tree    | 137929.62         |
+|       XGB        | 2437.55           |
+|     Pipeline     | 74949.64          |
+|Linear Regression | 105405.10         |
 
 ## **Diagram of the importance of the features**
 

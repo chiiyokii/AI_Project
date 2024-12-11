@@ -458,3 +458,5 @@ Inspired by these sources for SkLearn Pipelines : [SkLearn_Pipeline](https://sci
 Inspired by these sources for XGB : [How to train XGBoost models in Python](https://www.youtube.com/watch?v=aLOQD66Sj0g)
 
 General inspiration for the project : [housing price in Paris](https://www.kaggle.com/datasets/mssmartypants/paris-housing-classification)
+
+We used ChatGPT to help generate and understand certain parts of the code during the development of this project.

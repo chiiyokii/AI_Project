@@ -162,86 +162,9 @@ Results :
 Root Mean Squared Error (RMSE) : 137929.62299767748
 R² Score : 0.589544929491228**
 
+## **III. Pipeline using RandomForestRegressor and a different way to clean the dataset**
 
-
-## **III. eXtreme Gradient Boosting:**
-
-The third method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
-
-We will need use those libraries in order to build our model.
-
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from xgboost import XGBRegressor
-import metrics
-import warnings
-warnings.filterwarnings("ignore")
-```
-Now that we have imported our libraries and since we already checked our datas, we can start to modify our datas so they can be included more easily in our model, such as the selling and the type of accomodation.
-```python
-if 'date' in df.columns:
-    df['date'] = pd.to_datetime(df['date'], errors='coerce')
-    df['Selling_date'] = (df['date'] - pd.Timestamp("1970-01-01")) // pd.Timedelta('1s')
-    df.drop(columns=['date'], inplace=True)
-if 'category' in df.columns:
-    df['category'] = df['category'].map({'H': 0, 'C': 1}).fillna(-1)
-```
-We convert our date into integers and the type of accomodation into either a 0 or a 1.
-
-Once this is done, we can start to prepare our model.
-
-```python
-df['price'] = pd.factorize(df['price'])[0] + 1
-X = df.drop(['price'], axis = 1)
-y = df['price']
-X_train, X_test, y_train, y_test= train_test_split(X, y, test_size=0.3, random_state=101)
-```
-In the code cell above, we select our target feature and we split our data set into a test part and a training part. Here, we decided to use 30% of our data set as a testing part.
-
-```python
-scaler_train= StandardScaler()
-scaler_train.fit(X_train)
-scaler_test= StandardScaler()
-scaler_test.fit(X_test)
-X_train_scaled= scaler_train.transform(X_train)
-X_test_scaled= scaler_test.transform(X_test)
-
-XGB_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)
-XGB_model.fit(X_train_scaled,y_train)
-```
-In this part of the code, we first use a standard scaler to standardize our features, ensuring they are all on a similar scale. Standardization is use to make sure our XGboost will perform better. 
-Then we finally build our model using the XGBRegressor method, which in our case will use 1000 estimators corresponding to the number of trees the model will use, and a learning of 0.05. 
-```python
-y_pred = XGB_model.predict(X_test_scaled)
-y_pred = pd.DataFrame(y_pred)
-MSE_XGB = metrics.mean_squared_error(y_test, y_pred)
-RMSE_XGB =np.sqrt(MSE_XGB)
-print(RMSE_XGB)
-```
-After the training and the testing part, we use the root mean squared error formula to calculate the error of our model.
-The value we get with this method of calculation is 2437.544988756981.
-Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
-
-To calculate the precision of our model, we will compute the precision for each accomodation and then use the mean value of these calculations to estimate the precision of our model.
-
-```python
-mErr=[]
-for price in df['price']:
-    mErr.append(abs((price-RMSE_XGB)/price))
-
-Precision=np.mean(mErr)
-print(Precision)
-```
-The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
-
-## **IV. Pipeline using RandomForestRegressor**
-
-As a reference to RandomForest machine learning, we decided to use pipelines from the SKLearn library. The pipeline act as the assembly line for our ML model, which will be working on **RandomForest Regressor**. As this approach is less sophisticated compared to our previous model, we anticipate a higher error rate. To evaluate its accuracy, we will use different error indicators like the **Mean Squared Error (MSE)** as our performance metrics.
+As a reference to the RandomForest ML model we previously made, we decided to use pipelines from the SKLearn library to try the same algorithm on a different cleaned dataset. The pipelines act as the assembly lines for our ML model, which will be working on **RandomForest Regressor**. To evaluate its accuracy, we will use different error indicators such as the **Mean Squared Error (MSE)** as our performance metrics.
 
 These are the libraries used during this whole process : 
 
@@ -320,6 +243,82 @@ print(f"R2: {r2_score(y_test, y_pred)}")
 **Mean Absolute Error** : **38363.59**
 **Mean Squared Error** : **5617448228.**
 **R2** : **0.696**
+
+## **IV. eXtreme Gradient Boosting:**
+
+The third method we will be using XGBoost to try to predict more precisely the prices of accomodation. XGB is a powerful and efficient machine learning algorithm designed for both classification and regression tasks. It is based on the principle of gradient boosting, where multiple decision trees are built sequentially, and each tree learns to correct the errors of the previous ones.
+
+We will need use those libraries in order to build our model.
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from xgboost import XGBRegressor
+import metrics
+import warnings
+warnings.filterwarnings("ignore")
+```
+Now that we have imported our libraries and since we already checked our datas, we can start to modify our datas so they can be included more easily in our model, such as the selling and the type of accomodation.
+```python
+if 'date' in df.columns:
+    df['date'] = pd.to_datetime(df['date'], errors='coerce')
+    df['Selling_date'] = (df['date'] - pd.Timestamp("1970-01-01")) // pd.Timedelta('1s')
+    df.drop(columns=['date'], inplace=True)
+if 'category' in df.columns:
+    df['category'] = df['category'].map({'H': 0, 'C': 1}).fillna(-1)
+```
+We convert our date into integers and the type of accomodation into either a 0 or a 1.
+
+Once this is done, we can start to prepare our model.
+
+```python
+df['price'] = pd.factorize(df['price'])[0] + 1
+X = df.drop(['price'], axis = 1)
+y = df['price']
+X_train, X_test, y_train, y_test= train_test_split(X, y, test_size=0.3, random_state=101)
+```
+In the code cell above, we select our target feature and we split our data set into a test part and a training part. Here, we decided to use 30% of our data set as a testing part.
+
+```python
+scaler_train= StandardScaler()
+scaler_train.fit(X_train)
+scaler_test= StandardScaler()
+scaler_test.fit(X_test)
+X_train_scaled= scaler_train.transform(X_train)
+X_test_scaled= scaler_test.transform(X_test)
+
+XGB_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)
+XGB_model.fit(X_train_scaled,y_train)
+```
+In this part of the code, we first use a standard scaler to standardize our features, ensuring they are all on a similar scale. Standardization is use to make sure our XGboost will perform better. 
+Then we finally build our model using the XGBRegressor method, which in our case will use 1000 estimators corresponding to the number of trees the model will use, and a learning of 0.05. 
+```python
+y_pred = XGB_model.predict(X_test_scaled)
+y_pred = pd.DataFrame(y_pred)
+MSE_XGB = metrics.mean_squared_error(y_test, y_pred)
+RMSE_XGB =np.sqrt(MSE_XGB)
+print(RMSE_XGB)
+```
+After the training and the testing part, we use the root mean squared error formula to calculate the error of our model.
+The value we get with this method of calculation is 2437.544988756981.
+Thus, we now know that our model built with the XBG method can predict the price of an accomodation with an error of 2438 euros.
+
+To calculate the precision of our model, we will compute the precision for each accomodation and then use the mean value of these calculations to estimate the precision of our model.
+
+```python
+mErr=[]
+for price in df['price']:
+    mErr.append(abs((price-RMSE_XGB)/price))
+
+Precision=np.mean(mErr)
+print(Precision)
+```
+The output is 0.9778755555933469, which means that our model is able to predict the price of an accomodation with 97.8% accuracy, making it our most accurate method so far.
+
 
 ## **V. Linear Regression**
 

@@ -447,3 +447,8 @@ plt.show()
 # **Conclusion**
 
 The raw dataset contained several unnecessary features and values on different scales. Understanding and preprocessing the dataset was crucial, as it significantly impacts the accuracy and efficiency of the machine learning model. We tested various machine learning models to determine which provided the best accuracy. Ultimately, the Random Forest Regressor, combined with pipelines and a dataset of normalized values, delivered the best performance, resulting in a RMSE equal to 80 000 euros. Thus we can say that our model fullfilled its purpose of being able to roughly predict the price of an accomodation in order to help sellers and buyers to make their first opinion on the prices on the housing market.
+
+
+# **Related Work**
+
+[SkLearn_RandomForest_Regressor](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr](https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestRegressor.html)

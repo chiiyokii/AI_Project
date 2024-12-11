@@ -93,7 +93,7 @@ import matplotlib.pyplot as plt
 Here we convert the date in timestamp UNIX to be able to have the date in int because that will make it easier to use it
 
 ```python
-data = pd.read_csv(housing-prices-35.csv)
+data = pd.read_csv('housing-prices-35.csv')
 data['date'] = pd.to_datetime(data['date'])
 data['date'] = data['date'].view('int64') // 10**9  
 ```

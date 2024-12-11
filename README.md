@@ -129,7 +129,7 @@ r2_rf = r2_score(y_test, y_pred)
 ```
 
 **Mean Squared Error (MSE) : 14601154703.797789
-Mean Squared Error (MSE) : 14601154703.797789
+Root Mean Squared Error (RMSE) : 120835.23783978657
 R² Score : 0.685**
 
 
@@ -385,6 +385,23 @@ Here is our results :
 ![Screenshot 2024-12-11 170305](https://github.com/user-attachments/assets/62859049-987c-46aa-a164-917f20cf459f)
 
 ### Linear Regression
+
+Since the features_importance_ does not exist for linear regression, we will instead examine the coefficient of the linear model using this code:
+
+```python
+feature_importances = np.abs(lr.coef_)  
+feature_names = np.array(X.columns)
+sorted_idx = np.argsort(feature_importances)
+plt.figure(figsize=(10, 6))
+plt.barh(feature_names[sorted_idx], feature_importances[sorted_idx], color='skyblue')
+plt.xlabel("Importance of Features (Coefficient Magnitude)")
+plt.ylabel("Features")
+plt.title("Feature Importance for Linear Regression")
+plt.tight_layout()
+plt.show()
+```
+![image](https://github.com/user-attachments/assets/e86d449c-d0e2-4392-929b-af13f74b54d4)
+
 
 ## **Error distribution by price**
 

@@ -413,7 +413,9 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/e86d449c-d0e2-4392-929b-af13f74b54d4)
 
-On these graphics, we can see that a certain tendency appears in the repartition of  
+On these graphics, we can see that a certain tendency appears in relation to the distribution of the values. Indeed, all the models beside the XGB tend to have a very large difference between the importance of the features. It also seems that for the decision tree, the random forest model and the linear regression, the most important feature is by far the area of living of the accomodation, whereas for the pipeline this feature is the third more important after the date and the y axis position. With these graphics, we can see why the random forest, the decision tree and the linear regression all have a RMSE of the same order of magnitude, whereas the pipeline model which has a lower error is using the same pattern for the importance of the features but not in the same order.
+
+For the XGB the results are totally different. Indeed the graphic shows us that the model classifies all the feature with the same importance. Thus we can assume that the main Reason why the XGB model is so precise is because of this repartition of the features' importance.  
 ## **Error distribution by price**
 
 ### Pipeline

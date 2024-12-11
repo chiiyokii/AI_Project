@@ -200,7 +200,7 @@ df_ml['category_encoded'] = label_encoder.fit_transform(df_ml['category'])
 df_ml = df_ml.drop('category', axis=1)
 ```
 
-&emsp;&emsp;To use the dataset, we need to normalize every column. After testing scaling (as we did for XGB algorithm) and normalizing, normalizing proves to be the most accurate way to do. This allows the algorithm to work with smaller values and be more efficient : 
+&emsp;&emsp;To use the dataset, we need to normalize every column. After testing scaling and normalizing, normalizing proves to be the most accurate way to do. This allows the algorithm to work with smaller values and be more efficient : 
 
 ```python
 column_to_normalise = ['x_lbt93', 'y_lbt93', 'area_living', 'area_land', 'n_rooms']

@@ -331,7 +331,7 @@ R2: 0.3988599701918526**
 
 # **Evaluation & Analysis**
 
-Here are our results grouped in a table. As we can see, the most efficient model is the XGB with a root mean squared error of 2437.55 euros. The second most efficient model is the pipeline model has a RMSE of 74949.64 euros, which is 50 times the error of the XGB model. Our other results are also significantly higher, going up to more than 100 000 euros.
+
 
 |      Model       |       RMSE        |
 |------------------|-------------------|

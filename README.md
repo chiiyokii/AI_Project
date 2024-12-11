@@ -416,12 +416,15 @@ plt.show()
 On these graphics, we can see that a certain tendency appears in relation to the distribution of the values. Indeed, all the models beside the XGB tend to have a very large difference between the importance of the features. It also seems that for the decision tree, the random forest model and the linear regression, the most important feature is by far the area of living of the accomodation, whereas for the pipeline this feature is the third more important after the date and the y axis position. With these graphics, we can see why the random forest, the decision tree and the linear regression all have a RMSE of the same order of magnitude, whereas the pipeline model which has a lower error is using the same pattern for the importance of the features but not in the same order.
 
 For the XGB the results are totally different. Indeed the graphic shows us that the model classifies all the feature with the same importance. Thus we can assume that the main Reason why the XGB model is so precise is because of this repartition of the features' importance.  
+
+
 ## **Error distribution by price**
+
+For each ML model, let's show the error of each predicted value compared to the actual test values.
 
 ### RandomForest
 
 ![grapgh3](https://github.com/user-attachments/assets/b9fb30aa-413d-441c-b086-94b736b94eab)
-
 
 ### Pipeline
 
@@ -431,3 +434,6 @@ For the XGB the results are totally different. Indeed the graphic shows us that 
 
 ![grapgh2](https://github.com/user-attachments/assets/ab64db2a-cde6-4a50-9c3a-4756691458b3)
 
+### Analysis
+
+&emsp;&emsp;For most of the models, the error is proportional to the price. The higher is the price to predict, the higher is the error. 

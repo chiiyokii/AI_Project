@@ -418,6 +418,11 @@ On these graphics, we can see that a certain tendency appears in relation to the
 For the XGB the results are totally different. Indeed the graphic shows us that the model classifies all the feature with the same importance. Thus we can assume that the main Reason why the XGB model is so precise is because of this repartition of the features' importance.  
 ## **Error distribution by price**
 
+### RandomForest
+
+![grapgh3](https://github.com/user-attachments/assets/b9fb30aa-413d-441c-b086-94b736b94eab)
+
+
 ### Pipeline
 
 ![grapgh](https://github.com/user-attachments/assets/05226707-26e2-42ba-b7fe-f782e3f6def7)

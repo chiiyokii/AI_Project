@@ -128,28 +128,6 @@ Mean Squared Error (MSE) : 14601154703.797789
 R² Score : 0.685**
 
 
-### Diagram of the importance of the features
-
-```python
-feature_importances = rf_model.feature_importances_
-
-# We convert the caracteristics names in a Numpy array
-feature_names = np.array(X.columns)  
-sorted_idx = np.argsort(feature_importances) 
-
-plt.figure(figsize=(10, 6))
-plt.barh(feature_names[sorted_idx], feature_importances[sorted_idx], color='skyblue')
-plt.xlabel("Importance des caractéristiques")
-plt.ylabel("Caractéristiques")
-plt.title("Importance des caractéristiques (Random Forest)")
-plt.tight_layout()
-plt.show()
-```
-
-Here is our results :
-![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
-
-
 ## **II. Decision Tree**
 
 To train the decision tree model, we are going to use the same code except for the libraries and the training parts.
@@ -360,3 +338,30 @@ MAE: 62463.86799364371
 MSE: 11110234168.517103
 R2: 0.3988599701918526**
 
+# **Evaluation & Analysis**
+
+## **Diagram of the importance of the features**
+
+Code to dzqdd
+
+```python
+feature_importances = rf_model.feature_importances_
+
+# We convert the caracteristics names in a Numpy array
+feature_names = np.array(X.columns)  
+sorted_idx = np.argsort(feature_importances) 
+
+plt.figure(figsize=(10, 6))
+plt.barh(feature_names[sorted_idx], feature_importances[sorted_idx], color='skyblue')
+plt.xlabel("Importance des caractéristiques")
+plt.ylabel("Caractéristiques")
+plt.title("Importance des caractéristiques (Random Forest)")
+plt.tight_layout()
+plt.show()
+```
+### Random Forest
+
+Here is our results :
+![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
+
+### Decision tree

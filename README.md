@@ -372,7 +372,13 @@ Here is our results :
 
 ### Decision tree
 
+![image](https://github.com/user-attachments/assets/c6d3bbd5-c849-4af4-9c8a-87c1bd1ca78c)
+
+
 ### XBG
+
+![image](https://github.com/user-attachments/assets/367b12b8-f35e-4489-bf0f-4773fcb87d72)
+
 
 ### Pipeline
 

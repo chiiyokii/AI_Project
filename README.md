@@ -385,3 +385,14 @@ Here is our results :
 ![Screenshot 2024-12-11 170305](https://github.com/user-attachments/assets/62859049-987c-46aa-a164-917f20cf459f)
 
 ### Linear Regression
+
+## **Error distribution by price**
+
+### Pipeline
+
+![grapgh](https://github.com/user-attachments/assets/05226707-26e2-42ba-b7fe-f782e3f6def7)
+
+### Linear Regression
+
+![grapgh2](https://github.com/user-attachments/assets/ab64db2a-cde6-4a50-9c3a-4756691458b3)
+

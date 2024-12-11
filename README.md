@@ -445,3 +445,5 @@ plt.show()
 
 
 # **Conclusion**
+
+The raw dataset contained several unnecessary features and values on different scales. Preprocessing the dataset was crucial, as it significantly impacts the accuracy and efficiency of the machine learning model.

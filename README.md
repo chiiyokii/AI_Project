@@ -15,7 +15,7 @@
 | Alexia Mansiat    | Mechanical engineering |
 | William Rabuel    | Computer Science       |
 
-
+Presentation video : [AIPresentation](https://youtu.be/PVyATUuNeyY)
 
 ## **Here is a quick glance about what we plan to do :**
 

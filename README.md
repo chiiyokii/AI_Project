@@ -452,4 +452,4 @@ The raw dataset contained several unnecessary features and values on different s
 # **Related Work**
 
 Inspired by these sources for RandomForest Regressor : [SkLearn_RandomForest_Regressor1](https://scikit-learn.org/1.5/modules/generated/sklearn.ensemble.RandomForestRegressor.html), [Randomforest_regression](https://www.geeksforgeeks.org/random-forest-regression-in-python/)
-
+Inspired by these sources for SkLearn Pipelines : [SkLearn_Pipeline](https://scikit-learn.org/1.5/modules/generated/sklearn.pipeline.Pipeline.html)

@@ -421,6 +421,21 @@ For the XGB the results are totally different. Indeed the graphic shows us that 
 ## **Error distribution by price**
 
 For each ML model, let's show the error of each predicted value compared to the actual test values.
+Here is a sample of the code used.
+
+```python
+individual_rmse = np.sqrt((y_pred - y_test) ** 2)
+print(individual_rmse)
+plt.figure(figsize=(10, 6))
+plt.scatter(y_test, individual_rmse, color='blue', alpha=0.7, edgecolor='k')
+# labels and title
+plt.xlabel('True Values (y_test)')
+plt.ylabel('Individual RMSE')
+plt.title('Individual RMSE vs True Values')
+plt.grid(True, linestyle='--', alpha=0.6)
+# Display the plot
+plt.show()
+```
 
 ### RandomForest
 

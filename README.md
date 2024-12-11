@@ -26,7 +26,7 @@ However, the growing popularity of this destination among French travelers has c
 
 As a buyer, it’s essential to ensure that the lovely home you want is fairly priced. To help with this, we’ve developed an AI model designed to predict the selling prices of properties. Our goal is to create a machine learning tool that accurately estimates house prices based on market conditions, whether you're looking to buy or sell. 
 
-This model allows users to quickly get an initial idea of a **property's value** without going through lengthy processes with real estate agencies.
+As a seller, this model also allows users to quickly get an initial idea of a **property's value** without going through lengthy processes with real estate agencies.
 
 
 Here is the Dataset from kaggle we will use : [DatasetOfHousingPrice](https://www.kaggle.com/datasets/cheneblanc/housing-prices-35-fr)

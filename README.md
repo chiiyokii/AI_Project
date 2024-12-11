@@ -446,4 +446,4 @@ plt.show()
 
 # **Conclusion**
 
-The raw dataset contained several unnecessary features and values on different scales. Preprocessing the dataset was crucial, as it significantly impacts the accuracy and efficiency of the machine learning model. We different models to see which one gives us the more accuracy and we saw that the best model for our dataset was pipeline.
+The raw dataset contained several unnecessary features and values on different scales. Preprocessing the dataset was crucial, as it significantly impacts the accuracy and efficiency of the machine learning model. We tested various machine learning models to determine which provided the best accuracy. Ultimately, the Random Forest Regressor, combined with pipelines and a dataset of normalized values, delivered the best performance.

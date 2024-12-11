@@ -451,4 +451,4 @@ plt.show()
 
 ### Analysis
 
-&emsp;&emsp;For most of the models, the error is proportional to the price. The higher is the price to predict, the higher is the error. 
+&emsp;&emsp;For most of the models, the error follows a proportional relationship with the price. The higher is the price to predict, the higher is the error. 

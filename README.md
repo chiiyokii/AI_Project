@@ -65,11 +65,16 @@ To be able to predict the price we are going to use several methods such as Rand
 
 ### **2. Additional analysis**
 
-Here is a map of all the prices by quantiles.
+&emsp;Here is a map of all the prices by quantiles.
 
 ![Image](https://github.com/user-attachments/assets/104b1458-8e9a-4991-b626-ab2c5e6e2e40)
 
 It is logical that the highest prices are grouped around the large city of Rennes and around the seaside resort of Saint Malo (in the north).
+
+&emsp;The time and date is a relevant indicator of the price as it is the only variable reflecting the market ups and downs.
+
+![Screenshot 2024-12-11 165825](https://github.com/user-attachments/assets/8afc3f43-767a-495a-b542-eb0526b36a53)
+
 
 ## **I. Random Forest**
 
@@ -342,10 +347,10 @@ R2: 0.3988599701918526**
 
 ## **Diagram of the importance of the features**
 
-Code to dzqdd
+Sample of code we are using to analyse the most relevant features of our ML models.
 
 ```python
-feature_importances = rf_model.feature_importances_
+feature_importances = model.feature_importances_
 
 # We convert the caracteristics names in a Numpy array
 feature_names = np.array(X.columns)  
@@ -362,6 +367,15 @@ plt.show()
 ### Random Forest
 
 Here is our results :
+
 ![image](https://github.com/user-attachments/assets/f52c03a7-2a16-403a-a9f4-04a02664f2e2)
 
 ### Decision tree
+
+### XBG
+
+### Pipeline
+
+![Screenshot 2024-12-11 170305](https://github.com/user-attachments/assets/62859049-987c-46aa-a164-917f20cf459f)
+
+### Linear Regression

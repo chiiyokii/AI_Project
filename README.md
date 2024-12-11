@@ -447,7 +447,7 @@ plt.show()
 
 ### XBG
 
-![grapgh4](https://github.com/user-attachments/assets/8cd5ac36-847d-405c-a897-51895805ba1a)
+![grapgh4](https://github.com/user-attachments/assets/887b3480-eec9-42d7-879e-a21b1fc8397e)
 
 
 ### Linear Regression
